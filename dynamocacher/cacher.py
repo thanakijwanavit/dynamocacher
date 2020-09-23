@@ -27,11 +27,11 @@ class Cacher(Model):
       return hashlib.sha256(json.dumps(inputDict).encode()).hexdigest()
 
   @classmethod
-  def getCache(cls, input, timeout = 86400):
+  def getCache(cls, input, timeout = 86400, verbose=False):
     # check cache for value
     cache = next(cls.query(cls.hashValue(input)), None)
     if cache and (datetime.now().timestamp() - cache.timestamp < timeout):
-      print('cache found')
+      if verbose: print('cache found')
       return cache.data
     else:
       print('cache not found or expired')
