@@ -1,4 +1,4 @@
-# pynamoCacher
+# dynamocacher
 ## Description
 A package which allows you to use dynamodb to cache 
 
@@ -17,6 +17,8 @@ A package which allows you to use dynamodb to cache
 ## SetUp
 
 ```python
+from dynamocacher.cacher import Cacher
+
 class Cache(Cacher):
   class Meta:
       table_name = 'dynamoCache'
@@ -24,6 +26,10 @@ class Cache(Cacher):
       aws_access_key_id = USER
       aws_secret_access_key = PW
       billing_mode= 'PAY_PER_REQUEST'
+```
+## createTable
+```python
+Cache.create_table()
 ```
 
 ## addCache

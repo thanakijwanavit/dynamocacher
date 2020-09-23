@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dynamocacher",
-    version="0.0.2",
+    version="0.0.5",
     author="Nic Wanavit",
     author_email="nwanavit@gmail.com",
     description="storing cache using dynamodb",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/thanakijwanavit/dynamocacher",
-    packages=setuptools.find_packages(),
+    packages=['dynamocacher'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
