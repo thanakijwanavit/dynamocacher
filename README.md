@@ -58,7 +58,7 @@ Cache.addCache(
 ## getCache
 
 ```python
-output = Cache.getCache(sampleInput)
+output = Cache.getCache(sampleInput, timeout = 3600) # ignore cache older than 3600 seconds
 print(output)
 ```
 
