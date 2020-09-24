@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.9",
     author="Nic Wanavit",
     author_email="nwanavit@gmail.com",
-    description="storing cache using dynamodb",
+    description="storing cache using dynamodb dax",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/thanakijwanavit/dynamocacher",
