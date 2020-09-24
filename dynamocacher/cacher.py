@@ -15,13 +15,7 @@ class Cacher(Model):
         'data': self.data,
         'timestamp': self.timestamp
                 })
-  def __init__(self, tableName = 'initName', user= None, pw = None, **kwargs):
-    self.Meta.table_name = tableName
-    if user and pw:
-      self.Meta.aws_access_key_id = user
-      self.Meta.aws_secret_access_key = pw
 
-    super().__init__(**kwargs)
   @staticmethod
   def hashValue(inputDict:dict):
       return hashlib.sha256(json.dumps(inputDict).encode()).hexdigest()
