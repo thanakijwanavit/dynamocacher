@@ -109,3 +109,14 @@ output = Cache.getCache(sampleInput, timeout = 3600) # ignore cache older than 3
 ```
 
 
+## creating a table with sam
+```yaml
+  Properties:
+  TableName: dynamoCache
+  PrimaryKey:
+    Name: cacheKey
+    Type: String
+  Tags:
+    Department: Engineering
+    AppType: Serverless
+```
