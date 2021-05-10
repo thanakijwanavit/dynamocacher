@@ -43,7 +43,7 @@ class Cacher(Model):
         cacheKey = cls.hashValue(input),
         data = output if not compression else {},
         timestamp = datetime.now().timestamp(),
-        compressedData = cls.compress(input) if compression else None
+        compressedData = cls.compress(output) if compression else None
     )
     try:
         return cache.save()
