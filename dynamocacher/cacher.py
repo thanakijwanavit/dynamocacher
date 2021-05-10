@@ -22,7 +22,7 @@ class Cacher(Model):
       return hashlib.sha256(json.dumps(inputDict).encode()).hexdigest()
 
   @classmethod
-  def getCache(cls, input, timeout = 86400, verbose=False, compression = True):
+  def getCache(cls, input:(dict,str), timeout = 86400, verbose=False, compression = True):
     # check cache for value
     cache = next(cls.query(cls.hashValue(input)), None)
     if cache and (datetime.now().timestamp() - cache.timestamp < timeout):
@@ -38,7 +38,7 @@ class Cacher(Model):
       logging.warning('cache not found or expired')
       return None
   @classmethod
-  def addCache(cls, input:dict, output:dict, compression = True):
+  def addCache(cls, input:(dict,str), output:(dict,str), compression = True):
     cache = cls(
         cacheKey = cls.hashValue(input),
         data = output if not compression else {},
@@ -55,3 +55,13 @@ class Cacher(Model):
   @staticmethod
   def decompress(data:bin, method = zlib)->dict:
     return json.loads(zlib.decompress(data).decode())
+  
+  @classmethod
+  def deleteCache(cls, input:(dict,str)):
+    try:
+      r = next(cls.query(cls.hashValue(input))).delete()
+      logging.exception('deleted')
+      return r
+    except Exception as e:
+      logging.exception('maybe log does exist')
+      return e
