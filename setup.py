@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dynamocacher",
-    version="0.0.16",
+    version="0.0.17",
     author="Nic Wanavit",
     author_email="nwanavit@gmail.com",
     description="storing cache using dynamodb dax",
